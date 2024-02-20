@@ -12,15 +12,15 @@ import pages.Baseclass;
 import pages.UtilityClass;
 import pages.pom_page;
 
-public class A_Homepage extends Baseclass {
+public class AmazonHomepage extends Baseclass {
 	pom_page pg ;
 
 	
 	@BeforeClass
-	public void OpenBrowser() throws InterruptedException, IOException 
+	public void openBrowser() throws InterruptedException, IOException 
 	{
 	
-		initilizebrowser();
+		initilizebrowser(UtilityClass.property_file("Browsername"));
   
 		pg = new pom_page(driver);
 	}
@@ -28,7 +28,7 @@ public class A_Homepage extends Baseclass {
 	
 	//Verifying Title of the Page
 	@Test(priority = 1)
-	public void homepages() throws EncryptedDocumentException, IOException {
+	public void homePages() throws EncryptedDocumentException, IOException {
 		
 		String title = pg.getTitle();  
 		
@@ -39,7 +39,7 @@ public class A_Homepage extends Baseclass {
 	
 	//Verifying Buy Product Procedure
 	@Test(priority = 2)
-	public void ByIphones() throws EncryptedDocumentException, IOException, InterruptedException {
+	public void buyIPhones() throws EncryptedDocumentException, IOException, InterruptedException {
 		
 		pg.searchBox(UtilityClass.TestData(0, 1));
 		pg.Buyiphone();
